@@ -203,7 +203,7 @@ defmodule RouterTest do
     {:ok, body} = JSON.decode(res.resp_body)
     assert body == %{"message" => "Floor obtained by user1 for group group1"}
 
-    Process.sleep(1000)
+    Process.sleep(1500)
 
     res = conn(:get, "/groups/group1/floor")
     |> Router.call(nil)
