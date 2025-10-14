@@ -31,9 +31,10 @@ defmodule Channel do
 end
 
 defmodule FM do
+  # Floor Manager, manages floor holder of audio channels
   use GenServer  
 
-  # Client
+  # Wrappers on callbacks
   
   def start_link(default) do
     GenServer.start_link(__MODULE__, default, name: FloorManager)
@@ -148,7 +149,7 @@ defmodule FM do
 end
 
 defmodule Timeout do
-  # Responsible for auto-releasing floor holders after a given 
+  # Responsible for auto-releasing floor holders after a given period 
   use GenServer
 
   def start_link(default) do
