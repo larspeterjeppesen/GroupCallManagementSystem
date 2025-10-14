@@ -1,16 +1,16 @@
 # GroupCallManagementSystem
 Group Call Management System for floor control of audio channels (Motorola Solutions Technical Assignment)
 
-# Introduction
+## Introduction
 
 Before I explain the code, I want to emphasize that I wrote my first line of code in elixir about a week ago, and this is my first project in the language. I hope my code does not look completely horrendous to you elixir veterans :)
 
-# How to run
+## How to run
 Clone this repository, and from the root folder, run with sudo/admin privilege:
 `docker build -t gcm gcm`
 `docker run -p 8080:8080 gcm`
 
-# API implementation and bonus challenges
+## API implementation and bonus challenges
 The OpenAPI spec has been implemented, but note that in order to accomodate for the bonus challenge of implementing prioritized requests, I have modified the description of response 400 for the path `/groups/{groupId}/floor` to be "Bad Request - Missing or invalid parameter" (instead of "Bad Request - Missing or invalid userId").
 (See openapi_spec.txt for my fully updated spec)
 
