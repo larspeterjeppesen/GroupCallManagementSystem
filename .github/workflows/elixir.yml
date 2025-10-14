@@ -12,6 +12,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+env:
+  project_path: "gcm"
+
 permissions:
   contents: read
 
@@ -36,7 +39,7 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
-      working-directory: cdm
+      working-directory: ${{ env.project_path }}
     - name: Run tests
       run: mix test
-      working-directory: cdm
+      working-directory: ${{ env.project_path }}
