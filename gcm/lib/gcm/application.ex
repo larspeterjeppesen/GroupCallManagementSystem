@@ -11,7 +11,7 @@ defmodule GCM.Application do
       # Starts a worker by calling: GCM.Worker.start_link(arg)
       # {GCM.Worker, arg}
       {Bandit, scheme: :http, plug: Router, port: 8080},
-      {FM, %Channel{}},
+      {FM, %{}},
       {Timeout, 200}
     ]
 
