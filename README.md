@@ -3,7 +3,7 @@ Group Call Management System for floor control of audio channels (Motorola Solut
 
 ## Introduction
 
-Before I explain the code, I want to emphasize that I wrote my first line of code in elixir about a week ago, and this is my first project in the language. I hope my code does not look completely horrendous to you elixir veterans :)  
+I want to emphasize that I wrote my first line of code in elixir about a week ago, and this is my first project in the language. I hope my code does not look completely horrendous to you elixir veterans :)  
 
 For an overview of the code architecture, see `gcm/README.md`
 
