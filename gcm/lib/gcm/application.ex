@@ -12,7 +12,7 @@ defmodule GCM.Application do
       # {GCM.Worker, arg}
       {Bandit, scheme: :http, plug: Router, port: 8080},
       {FM, %{}},
-      {Timeout, 200}
+      {Timeout, {500, 500}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

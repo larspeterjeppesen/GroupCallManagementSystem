@@ -148,6 +148,7 @@ defmodule FM do
 end
 
 defmodule Timeout do
+  # Responsible for auto-releasing floor holders after a given 
   use GenServer
 
   def start_link(default) do
@@ -161,17 +162,17 @@ defmodule Timeout do
   # Callbacks
 
   @impl true
-  def init(timer_interval) when is_integer(timer_interval) do
+  def init({timer_interval, timeout_period}) when is_integer(timer_interval) and is_integer(timeout_period) do
     schedule_next_timeout_check(timer_interval)
-    {:ok, timer_interval}
+    {:ok, {timer_interval, timeout_period}}
   end
 
   @impl true
-  def handle_info(:work, timer_interval) do
+  def handle_info(:work, {timer_interval, timeout_period}) do
 
     {:ok, current_time} = DateTime.now("Europe/Copenhagen")
     current_state = FM.get_state()
-    release_cond = fn channel -> DateTime.diff(current_time, elem(channel, 1).time_acquired) > timer_interval/1000 end
+    release_cond = fn channel -> DateTime.diff(current_time, elem(channel, 1).time_acquired) > timeout_period/1000 end
 
     channel_list = Map.to_list(current_state)
     should_update_channels = channel_list
@@ -186,7 +187,7 @@ defmodule Timeout do
     end
     schedule_next_timeout_check(timer_interval)
 
-    {:noreply, timer_interval}
+    {:noreply, {timer_interval, timeout_period}}
   end
 
 end  
