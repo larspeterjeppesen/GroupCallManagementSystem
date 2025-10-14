@@ -1,21 +1,23 @@
 # GCM
 
-**TODO: Add description**
+A service for managing floor control of audio channels in groups. This is not a real service, and only simulates floor control.
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `gcm` to your list of dependencies in `mix.exs`:
+## How to run
+`mix deps.get`
+`mix run --no-halt`
 
-```elixir
-def deps do
-  [
-    {:gcm, "~> 0.1.0"}
-  ]
-end
-```
+The service will then serve requests on 127.0.0.1:8080
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/gcm>.
+### Testing
+To run implemented tests of the code, run:
+`mix test`
 
+
+## Architecture
+The service consists of:
+- A Plug router for receiving and sending requests
+- An FM (FloorManager) GenServer that will maintain and mutate state based on incoming requests
+- A Timeout GenServer that will, at 500 ms intervals, drop floor holders that have held the floor for more thon 250 ms.
+
+All three processes are supervised, as can be seen in `lib/gcm/application.ex`
