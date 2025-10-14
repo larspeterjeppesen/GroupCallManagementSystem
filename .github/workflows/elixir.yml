@@ -35,5 +35,7 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
+      working-directory: cdm
     - name: Run tests
       run: mix test
+      working-directory: cdm
