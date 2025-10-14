@@ -1,9 +1,0 @@
-{application,gcm,
-             [{modules,['Elixir.FM','Elixir.GCM','Elixir.GCM.Application',
-                        'Elixir.Response','Elixir.Router']},
-              {optional_applications,[]},
-              {applications,[kernel,stdlib,elixir,logger,bandit,jason]},
-              {description,"gcm"},
-              {registered,[]},
-              {vsn,"0.1.0"},
-              {mod,{'Elixir.GCM.Application',[]}}]}.
