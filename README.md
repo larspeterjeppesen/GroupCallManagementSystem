@@ -1,5 +1,5 @@
 # GroupCallManagementSystem
-Group Call Management System for floor control of audio channels (Motorola Solutions Technical Assignment)
+Group Call Management System for floor control of audio channels
 
 ## Introduction
 
